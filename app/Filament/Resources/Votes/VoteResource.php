@@ -22,9 +22,11 @@ class VoteResource extends Resource
     public static function form(Schema $schema): Schema
     {
         return $schema->components([
-            TextInput::make('name')->required(),
-            ToggleButtons::make('verdict')->options(Vote::VERDICTS)->inline()->live()->required(),
-            Textarea::make('reason')->visible(fn (Get $get): bool => $get('verdict') === 'no')->required(),
+            TextInput::make('name')->label('Your name')->required(),
+            ToggleButtons::make('verdict')->label('Would you use Filament for your next admin panel?')
+                ->options(Vote::VERDICTS)->inline()->live()->required(),
+            Textarea::make('reason')->label('Why not?')
+                ->visible(fn (Get $get): bool => $get('verdict') === 'no')->required(),
         ]);
     }
 
