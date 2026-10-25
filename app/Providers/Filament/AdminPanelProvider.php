@@ -26,6 +26,8 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->brandName('Filament Live')
+            ->darkMode(isForced: true)
             ->colors([
                 'primary' => Color::hex('#8f7cf7'),
             ])
